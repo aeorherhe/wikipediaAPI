@@ -6,8 +6,8 @@
 
 ### Links
 
-- Solution URL: [solution]()
-- Live Site URL: [live site]()
+- Solution URL: [solution](https://github.com/aeorherhe/wikipediaAPI.git)
+- Live Site URL: [live site](https://aeorherhe-wikipedia-search.netlify.app/)
 
 ### Built with
 

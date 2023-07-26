@@ -1,0 +1,225 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto:wght@400;700&display=swap");
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* general variables */
+  --shadow-1: 0 1px 3px 0 rgba(189, 96, 96, 0.1),
+    0 1px 2px 0 rgba(59, 237, 14, 0.06);
+  --boxShadow: 0 0 5px rgba(250, 234, 230, 0.1);
+  --boxShadow2: 0px 0px 50px rgba(150, 150, 150, 0.3);
+  --transition: all 0.3s linear;
+  --transition2: all 0.5s ease-in-out;
+  --border: 2px solid rgb(228, 7, 166);
+  --border2: 1px solid rgba(152, 152, 156, 0.5);
+  --border3: 2px solid var(--bck-btn);
+
+  /* variables for this project */
+  --White: hsl(0, 100%, 100%);
+  --bck-body: #f8fafc;
+  --bck-btn: #645cff;
+  --visited: hsla(243, 100%, 68%, 0.7);
+  --text-clr: #0f172a;
+  --dark-red: #842029;
+}
+
+body {
+  background-color: var(--bck-body);
+  color: var(--text-clr);
+  display: grid;
+  font-family: "Inter", "Open Sans", "Helvetica Neue", sans-serif;
+  height: 100vh;
+  place-items: center;
+}
+
+a {
+  color: var(--text-clr);
+  font-family: "Inter";
+  text-decoration: none;
+}
+
+.main {
+  max-width: 90rem;
+  text-align: center;
+  width: 90vw;
+}
+
+/* spinning logo */
+.logo {
+  animation: logo-spinner 10s ease-in-out infinite;
+  margin: 3rem 0;
+  max-width: 25rem;
+}
+
+@keyframes logo-spinner {
+  to {
+    transform: rotateY(360deg);
+  }
+}
+/* end */
+
+.form-control {
+  background-color: var(--White);
+  border-radius: 0.5rem;
+  box-shadow: var(--boxShadow2);
+  display: grid;
+  gap: 1rem;
+  margin: 2rem auto;
+  padding: 2rem 0.5rem;
+}
+
+.search-input {
+  background-color: var(--bck-body);
+  box-shadow: var(--boxShadow2);
+  &:focus {
+    outline: var(--border3);
+  }
+}
+
+.search-input,
+.btn {
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  padding: 0.5rem 1.2rem;
+}
+
+.btn {
+  background-color: var(--bck-btn);
+  color: white;
+  justify-self: center;
+}
+
+.grid-contents {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cards a {
+  background: var(--White);
+  border-radius: 0.5rem;
+  box-shadow: var(--boxShadow);
+  display: inline-block;
+  line-height: 1.5;
+  padding: 1.5rem 1rem;
+  text-align: left;
+  transition: var(--transition2);
+  & h2 {
+    margin-bottom: 1rem;
+  }
+  &:hover {
+    background: var(--text-clr);
+    color: #fdfdfd;
+    transition: var(--transition2);
+  }
+  &:visited p {
+    color: var(--visited);
+  }
+}
+
+.error {
+  color: var(--dark-red);
+  font-size: 1.2rem;
+  text-transform: capitalize;
+}
+
+/* loading state */
+.loading-state {
+  animation: loading-spinner 0.5s linear infinite;
+  border-radius: 50%;
+  border: 5px solid var(--bck-btn);
+  border-top-color: var(--bck-body);
+  height: 6rem;
+  margin: 5rem auto;
+  width: 6rem;
+}
+
+@keyframes loading-spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* end of loading state */
+
+/* media query */
+@media (min-width: 35rem) {
+  .form-control {
+    gap: 0;
+    grid-template-columns: auto 100px;
+    max-width: 45rem;
+    padding: 2rem;
+  }
+
+  .search-input {
+    border-radius: 0;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    &:focus {
+      outline: none;
+      border: var(--border3);
+      border-right: transparent;
+    }
+  }
+
+  .btn {
+    border-radius: 0;
+    border-bottom-right-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    margin-left: -0.1rem;
+  }
+
+  .grid-contents {
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  }
+}
+
+/* footer styles */
+.my-profile {
+  align-items: center;
+  align-self: self-end;
+  background-color: hsl(228, 59%, 16%);
+  color: white;
+  display: flex;
+  font-size: 14px;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 5rem;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.my-profile > a {
+  cursor: pointer;
+  color: hsl(51, 79%, 45%);
+  text-decoration: none;
+}
+
+.my-profile-icons a {
+  cursor: pointer;
+  color: var(--White);
+  display: inline-block;
+  margin: 0 5px;
+}
+
+@media screen and (max-width: 500px) {
+  .my-profile {
+    font-size: 12px;
+  }
+
+  .my-profile-icons a:first-of-type,
+  .my-profile-icons a:last-of-type {
+    display: none;
+  }
+}
